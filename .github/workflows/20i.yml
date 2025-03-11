@@ -45,7 +45,7 @@ jobs:
     - name: Start build
       run: |
         cat /home/runner/.local/lib/python3.8/site-packages/sebaubuntu_libs/libandroid/device_info.py
-        python3 -m twrpdtgen -o dt/ *.img
+        # python3 -m twrpdtgen -o dt/ *.img
 
     - name: ZIP device tree
       run: |
