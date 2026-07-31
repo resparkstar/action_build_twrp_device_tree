@@ -44,25 +44,6 @@ jobs:
     - name: Generate device tree
       run: |
         mkdir -p device_tree_output
-        python3 -m twrpdtgen \
-          -o device_tree_output \
-          recovery.img
+        cat /home/runner/.local/lib/python3.12/site-packages/sebaubuntu_libs/libandroid/device_info.py
         
-    - name: Compress device tree
-      run: |
-        cd device_tree_output
-        zip -r ../DeviceTree_${{ github.run_number }}.zip .
-        cd ..
-        
-    - name: Create release with device tree
-      uses: softprops/action-gh-release@v1
-      with:
-        files: DeviceTree_${{ github.run_number }}.zip
-        name: TWRP_Device_Tree_${{ github.run_number }}
-        tag_name: dt-${{ github.run_number }}
-        body: |
-          Automatically generated TWRP device tree
-          Build run: ${{ github.run_number }}
-          Source image: ${{ github.event.inputs.IMG_URL }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
