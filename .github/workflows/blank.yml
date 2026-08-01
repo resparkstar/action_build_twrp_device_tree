@@ -51,7 +51,7 @@ jobs:
     - name: Compress device tree
       run: |
         cd ..
-        zip -r ../DeviceTree_${{ github.run_number }}.zip .
+        zip -r ../j3_${{ github.run_number }}.zip .
         ls  
     - name: Create release with device tree
       uses: softprops/action-gh-release@v1
