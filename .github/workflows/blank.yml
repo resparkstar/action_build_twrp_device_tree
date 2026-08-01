@@ -53,5 +53,6 @@ jobs:
         cd device_tree_output
         zip -r ../DeviceTree_${{ github.run_number }}.zip .
         cd ..
+        ls
         
   
