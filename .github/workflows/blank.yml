@@ -54,15 +54,4 @@ jobs:
         zip -r ../DeviceTree_${{ github.run_number }}.zip .
         cd ..
         
-    - name: Create release with device tree
-      uses: softprops/action-gh-release@v1
-      with:
-        files: DeviceTree_${{ github.run_number }}.zip
-        name: TWRP_Device_Tree_${{ github.run_number }}
-        tag_name: dt-${{ github.run_number }}
-        body: |
-          Automatically generated TWRP device tree
-          Build run: ${{ github.run_number }}
-          Source image: ${{ github.event.inputs.IMG_URL }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  
