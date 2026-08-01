@@ -39,6 +39,13 @@ jobs:
     - name: Download recovery image
       run: |
         wget -O recovery.img "${{ github.event.inputs.IMG_URL }}"
+
+    - name: Generate device tree
+      run: |
+        mkdir -p device_tree_output
+        python3 -m twrpdtgen \
+          -o device_tree_output \
+          recovery.img
         file recovery.img || true  # Display file info for debugging
       
     
