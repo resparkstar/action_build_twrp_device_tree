@@ -50,7 +50,7 @@ jobs:
         
     - name: Compress device tree
       run: |
-        cd device_tree_output
+        cd device_tree_output/samsung
         zip -r ../DeviceTree_${{ github.run_number }}.zip .
         ls
         
