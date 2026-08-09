@@ -10,7 +10,7 @@ on:
       IMG_URL:
         description: 'URL to recovery/boot image'
         required: true
-        default: 'https://github.com/resparkstar/action_build_twrp_device_tree/raw/main/recovery.img'
+        default: 'https://github.com/resparkstar/action_build_twrp_device_tree/raw/o7ltechn/recovery.img'
 
 jobs:
   generate-device-tree:
@@ -52,7 +52,9 @@ jobs:
       run: |
         cd device_tree_output
         zip -r ../DeviceTree_${{ github.run_number }}.zip .
-
+        cd ..
+        ls
+        
     - name: Create release with device tree
       uses: softprops/action-gh-release@v1
       with:
@@ -65,6 +67,3 @@ jobs:
           Source image: ${{ github.event.inputs.IMG_URL }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        cd ..
-        
-  
